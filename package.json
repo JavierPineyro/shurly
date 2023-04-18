@@ -1,0 +1,36 @@
+{
+  "name": "shurly-server",
+  "version": "1.0.0",
+  "description": "Url shorter api",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "cross-env NODE_ENV=production node server.js",
+    "dev:server": "node --watch server.js",
+    "build:ui": "cd client && npm run build"
+  },
+  "author": "Javier Piñeyro",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "2.8.5",
+    "dotenv": "16.0.3",
+    "express": "4.18.2",
+    "express-rate-limit": "6.7.0",
+    "helmet": "6.1.5",
+    "mongoose": "7.0.3",
+    "nanoid": "4.0.2"
+  },
+  "devDependencies": {
+    "cross-env": "7.0.3",
+    "standard": "^17.0.0"
+  },
+  "eslintConfig": {
+    "extends": [
+      "./node_modules/standard/eslintrc.json"
+    ],
+    "rules": {
+      "no-unused-vars": "warn",
+      "space-before-function-paren": "off"
+    }
+  }
+}
