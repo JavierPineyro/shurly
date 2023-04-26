@@ -1,22 +1,10 @@
 
-// http://localhost:3333/2cYx2nDbVV4mb0H-r7UUI
+// http://localhost:3333/2cYx2nDbVV4mb0H-r7UUI  <---- example
 
 function App() {
-  // useEffect(() => {
-  //   const data = { originalUrl: 'https://twitter.com' }
-  //   fetch('/api/short', {
-  //     method: 'POST',
-  //     body: JSON.stringify(data),
-  //     headers: {
-  //       'Content-Type': 'application/json'
-  //     }
-  //   }).then(response => response.json())
-  //     .then(data => console.log(data))
-  // }, [])
-
   return (
     <div className='App'>
-      <h1>Shurly</h1>
+      <h1 className='text-sky-700 text-center text-3xl font-bold'>Shurly</h1>
     </div>
   )
 }

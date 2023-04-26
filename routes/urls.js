@@ -14,7 +14,7 @@ routerUrl.post('/short', async (req, res) => {
   const isAlreadyShorted = originalUrl?.includes(baseUrl)
 
   if (isAlreadyShorted) {
-    return res.status(400).json({ message: 'Url was already shorted' })
+    return res.status(400).send({ message: 'Url was already shorted' })
   }
 
   if (isValidUrl) {
@@ -40,11 +40,11 @@ routerUrl.post('/short', async (req, res) => {
     } catch (err) {
       console.error(err)
       // return Internal server error response if DB error
-      return res.status(500).json({ message: 'Something went wrong, server error' })
+      return res.status(500).send({ message: 'Something went wrong, server error' })
     }
   }
   // return Invalid url error if it's not a valid url
-  return res.status(406).json({ message: 'Invalid url' })
+  return res.status(404).send({ message: 'Invalid url' })
 })
 
 export default routerUrl

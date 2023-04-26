@@ -18,11 +18,11 @@ routerRedirect.get('/:id', async (req, res) => {
       return res.redirect(url.originalURL)
     }
     // Return not found message if url doesn't exists
-    return res.status(404).json({ message: 'Url does not exists' })
+    return res.status(404).send({ message: 'Url does not exists' })
   } catch (err) {
     console.error(err)
     // return Internal server error response if DB error
-    return res.status(500).json({ message: 'Something went wrong, server error' })
+    return res.status(500).send({ message: 'Something went wrong, server error' })
   }
 })
 
