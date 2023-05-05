@@ -27,7 +27,9 @@ const apiLimiter = rateLimit({
 app.use(express.json()) // body parser
 app.use(express.urlencoded({ extended: true }))
 
-app.use(express.static(path.join(process.cwd(), '/client/dist'))) // Serve frontend
+// express.static(path.join(process.cwd(), '/client/dist'))
+
+app.use(express.static(path.resolve(__dirname, 'client/dist'))) // Serve frontend
 app.set('trust proxy', 1)
 app.use('/api', apiLimiter) // Apply the rate limiting middleware to API calls only
 
