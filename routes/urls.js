@@ -1,8 +1,12 @@
 import express from 'express'
 import dotenv from 'dotenv'
-import { nanoid } from 'nanoid'
 import { validateUrl } from '../utils/index.js'
 import UrlModel from '../models/UrlModel.js'
+// import { nanoid } from 'nanoid'
+import { customAlphabet } from 'nanoid'
+
+// Add a custom alphabet and number of characteres used in nanoID function
+const nanoid = customAlphabet('1234567890abcdefGHIJK', 11)
 
 dotenv.config()
 const routerUrl = express.Router()
