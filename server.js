@@ -28,13 +28,17 @@ app.use(express.json()) // body parser
 app.use(express.urlencoded({ extended: true }))
 
 // express.static(path.join(process.cwd(), '/client/dist'))
-
-app.use('/', express.static(path.resolve(process.cwd(), 'client/dist'))) // Serve frontend
+// app.use('/', express.static(path.resolve(process.cwd(), 'client/dist')))
+// Serve frontend
 
 app.set('trust proxy', 1)
 app.use('/api', apiLimiter) // Apply the rate limiting middleware to API calls only
 
 app.use('/', routerRedirect)
+app.get('/', (req, res) => {
+  res.sendFile(path.join(__dirname, './client/dist', 'index.html'))
+})
+console.log('dirrrrrrrrr', __dirname)
 app.use('/api', routerUrl)
 
 app.use(unknownEndpoint)
