@@ -36,7 +36,9 @@ export default function App() {
         </Section>
         <Section styles='rounded-sm mb-3'>
           <div className='flex break-all relative gap-4 sm:justify-between sm:items-center bg-white text-xl sm:text-2xl rounded-md w-full border-2 outline-1 outline-sky-500 p-2'>
-            {url?.shortURL ?? <span className='text-lightgray'>Aquí verás el resultado</span>}
+            {
+              url?.shortURL ?? <span className='text-lightgray'>Aquí verás el resultado</span>
+            }
             <Button styles='absolute right-1 top-0 sm:top-1' ariaTitle='Copiar al portapapeles' type='button' onClick={handleClipboard}>
               <Copy />
             </Button>
