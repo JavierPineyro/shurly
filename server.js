@@ -43,5 +43,6 @@ const BASEURL = process.env.BASE
 
 app.listen(PORT, () => {
   console.log(`Server running at PORT: ${PORT}`)
+
   console.log(`App running at: ${BASEURL}`)
 })
