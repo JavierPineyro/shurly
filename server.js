@@ -30,6 +30,9 @@ app.use(express.urlencoded({ extended: true }))
 // express.static(path.join(process.cwd(), '/client/dist'))
 
 app.use(express.static(path.resolve(process.cwd(), 'client/dist'))) // Serve frontend
+console.log('PATHHHHHH:', path.resolve(process.cwd(), 'client/dist'))
+console.log('PATHHHHHH cwd:', process.cwd())
+
 app.set('trust proxy', 1)
 app.use('/api', apiLimiter) // Apply the rate limiting middleware to API calls only
 
