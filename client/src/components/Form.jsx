@@ -24,6 +24,7 @@ function Form({ toast, setUrl }) {
       }
 
       const response = await res.json()
+      setInput('')
       setUrl(response)
       toast.success('Link acortado exitosamente!')
     } catch (error) {
@@ -48,7 +49,6 @@ function Form({ toast, setUrl }) {
         isDisabled={isLoading}
         ariaTitle='Acortar link'
         type='submit'
-        styles={`${isLoading ? 'cursor-not-allowed pointer-events-none opacity-50' : 'cursor-pointer'}`}
       >Acortar
       </Button>
     </form>
