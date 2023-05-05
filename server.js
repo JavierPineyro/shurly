@@ -38,7 +38,7 @@ app.use(unknownEndpoint)
 // app.use(errorHandler)
 
 // Server Setup
-const PORT = process.env.PORT || 3001
+const PORT = process.env.PORT || 3333
 const BASEURL = process.env.BASE
 
 app.listen(PORT, () => {

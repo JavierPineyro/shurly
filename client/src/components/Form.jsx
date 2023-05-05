@@ -9,7 +9,7 @@ function Form({ toast, setUrl }) {
     evt.preventDefault()
     try {
       setIsLoading(true)
-      const res = await fetch('http://localhost:3333/api/short', {
+      const res = await fetch('/api/short', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
