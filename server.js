@@ -1,3 +1,4 @@
+import path from 'node:path'
 import express from 'express'
 import dotenv from 'dotenv'
 import cors from 'cors'
@@ -29,7 +30,7 @@ app.use(express.urlencoded({ extended: true }))
 app.set('trust proxy', 1)
 app.use('/api', apiLimiter) // Apply the rate limiting middleware to API calls only
 
-app.use(express.static('client/dist')) // Serve frontend
+app.use(express.static(path.join(process.cwd, '/client/dist'))) // Serve frontend
 app.use('/', routerRedirect)
 app.use('/api', routerUrl)
 
