@@ -14,7 +14,10 @@
 
 ## :hammer:Funcionalidades del proyecto
 
-- `Funcionalidad 1`: descripción de la funcionalidad 1
-- `Funcionalidad 2`: descripción de la funcionalidad 2
-- `Funcionalidad 2a`: descripción de la funcionalidade 2a relacionada con la funcionalidad 2
-- `Funcionalidad 3`: descripción de la funcionalidad 3
+- `📌 Acortar urls`: Ingresa un url largo y acortalo para que sea más fácil compartirlo con otros.
+- `📌 Detalles del url recortado`: Muestra datos de tu link tales como:
+  - ✔ Cantidad de clicks en el link
+  - ✔ Fecha de creación
+  - ✔ Url original
+- `📌 Redireccion`: Una vez ingresado en tu link acortado, se te redirigirá a tu destino y se actualizarán los datos
+- `📌 Límites`: No abuses del servidor, hay un límite de usos suficiente por hora (si lo sobrepasas se te bloquea el acceso)
