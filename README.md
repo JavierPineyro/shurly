@@ -1,6 +1,6 @@
 ![Logo Shurly](https://res.cloudinary.com/javipineyro/image/upload/v1683335526/shurly_cbaazk.jpg)
 ***
-<p>Shurly es un acortador de urls <strong>gratis</strong> y lo mejor es que <strong>NO NECESITAS REGISTRARTE</strong></p>
+ <p>Shurly es un acortador de urls <strong>gratis</strong> y lo mejor es que <strong>NO NECESITAS REGISTRARTE</strong></p>
 
 
   ![](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
