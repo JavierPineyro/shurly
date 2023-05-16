@@ -5,9 +5,11 @@ import Button from './components/Button'
 import UrlData from './components/UrlData'
 import Form from './components/Form'
 import { Copy } from './components/Icons'
+import { useAutoAnimate } from '@formkit/auto-animate/react'
 
 export default function App() {
   const [url, setUrl] = useState(null)
+  const [parent] = useAutoAnimate()
 
   function handleClipboard() {
     if (url) {
@@ -43,7 +45,9 @@ export default function App() {
               <Copy />
             </Button>
           </div>
-          {url && <UrlData url={url} />}
+          <div ref={parent}>
+            {url && <UrlData url={url} />}
+          </div>
         </Section>
       </main>
     </>
