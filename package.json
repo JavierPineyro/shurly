@@ -6,7 +6,7 @@
   "type": "module",
   "scripts": {
     "start": "cross-env NODE_ENV=production node server.js",
-    "dev:server": "node --watch server.js",
+    "dev:server": "cross-env NODE_ENV=dev node --watch server.js",
     "build:ui": "cd client && npm run build"
   },
   "author": "Javier Piñeyro",

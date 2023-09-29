@@ -24,6 +24,14 @@ const UrlSchema = new Schema({
   }
 })
 
-const UrlModel = model('Url', UrlSchema)
+UrlSchema.set('toJSON', {
+  transform: (document, returnedObject) => {
+    returnedObject.id = returnedObject._id.toString()
+    delete returnedObject._id
+    delete returnedObject.__v
+  }
+})
 
-export default UrlModel
+const UrlModelSchema = model('Url', UrlSchema)
+
+export default UrlModelSchema
