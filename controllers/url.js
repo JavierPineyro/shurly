@@ -6,13 +6,12 @@ export class UrlController {
     const { id } = req.params
 
     try {
-      const url = await UrlModel.getById({ id })
+      const url = await UrlModel.getUrlToRedirect({ id })
 
       if (!url) {
         return res.status(404).send({ message: 'Url does not exists' })
       }
 
-      await UrlModel.increaseClickCounter({ id })
       return res.redirect(url.originalURL)
     } catch (err) {
       logError(err)
