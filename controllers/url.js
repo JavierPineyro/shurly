@@ -13,13 +13,14 @@ export class UrlController {
 
       return res.status(301).redirect(url.originalURL)
     } catch (err) {
-      logError(err)
-      return res.status(500).send({ message: 'Something went wrong, server error' })
+      logError('Error redirecting url', err)
+      return res.status(500).send({ message: 'Something went wrong while redirecting url' })
     }
   }
 
   static async create(req, res) {
     const { originalUrl } = req.body
+
     const baseUrl = process.env.NODE_ENV === 'production' ? process.env.BASE : 'http://localhost:8080'
     const isValidUrl = UrlModel.validate({ originalUrl })
     const isAlreadyShorted = originalUrl?.includes(baseUrl)
@@ -29,7 +30,6 @@ export class UrlController {
     }
 
     if (!isValidUrl) {
-    // return Invalid url error if it's not a valid url
       return res.status(404).send({ message: 'Invalid url' })
     }
 
@@ -43,8 +43,8 @@ export class UrlController {
       const url = await UrlModel.create({ originalUrl, baseUrl })
       return res.status(201).json(url)
     } catch (err) {
-      console.error(err)
-      return res.status(500).send({ message: 'Something went wrong, server error' })
+      console.error('Error creating url', err)
+      return res.status(500).send({ message: 'Something went wrong while creating url' })
     }
   }
 }
