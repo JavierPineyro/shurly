@@ -29,6 +29,7 @@
       "./node_modules/standard/eslintrc.json"
     ],
     "rules": {
+      "no-unreachable": "warn",
       "no-unused-vars": "warn",
       "space-before-function-paren": "off"
     }
