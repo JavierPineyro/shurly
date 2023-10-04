@@ -7,12 +7,11 @@ export class UrlController {
 
     try {
       const url = await UrlModel.getUrlToRedirect({ id })
-
       if (!url) {
         return res.status(404).send({ message: 'Url does not exists' })
       }
 
-      return res.redirect(url.originalURL)
+      return res.status(301).redirect(url.originalURL)
     } catch (err) {
       logError(err)
       return res.status(500).send({ message: 'Something went wrong, server error' })
@@ -42,7 +41,7 @@ export class UrlController {
       }
 
       const url = await UrlModel.create({ originalUrl, baseUrl })
-      return res.json(url)
+      return res.status(201).json(url)
     } catch (err) {
       console.error(err)
       return res.status(500).send({ message: 'Something went wrong, server error' })
