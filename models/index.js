@@ -13,7 +13,7 @@ export class UrlModel {
       const url = await UrlModelSchema.findOne({ idURL: id })
       return url
     } catch (error) {
-      throw new Error('Error getting a URL by ID in database', error)
+      throw new Error('Error getting a URL by ID in database', { cause: error })
     } finally {
       await disconnectDatabase()
     }
@@ -27,7 +27,7 @@ export class UrlModel {
         { $inc: { clicksCount: 1 } } // Mongo function to increment a value
       )
     } catch (error) {
-      throw new Error('Error increasing click counter in database', error)
+      throw new Error('Error increasing click counter in database', { cause: error })
     } finally {
       await disconnectDatabase()
     }
@@ -43,7 +43,7 @@ export class UrlModel {
       }
       return url
     } catch (error) {
-      throw new Error('Error in Model getting URL to redirect', error)
+      throw new Error('Error in Model getting URL to redirect', { cause: error })
     } finally {
       await disconnectDatabase()
     }
@@ -55,7 +55,7 @@ export class UrlModel {
       const url = await UrlModelSchema.findOne({ originalURL: originalUrl })
       return url
     } catch (error) {
-      throw new Error('Error getting a URL by URL in database', error)
+      throw new Error('Error getting a URL by URL in database', { cause: error })
     } finally {
       await disconnectDatabase()
     }
@@ -76,7 +76,7 @@ export class UrlModel {
       await connectDatabase()
       await newUrl.save()
     } catch (error) {
-      throw new Error('Error creating a new URL in database', error)
+      throw new Error('Error creating a new URL in database', { cause: error })
     } finally {
       await disconnectDatabase()
     }

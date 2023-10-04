@@ -1,5 +1,4 @@
 import { UrlModel } from '../models/index.js'
-import { logError } from '../utils/index.js'
 
 export class UrlController {
   static async redirect(req, res) {
@@ -13,7 +12,7 @@ export class UrlController {
 
       return res.status(301).redirect(url.originalURL)
     } catch (err) {
-      logError('Error redirecting url', err)
+      console.error('Error redirecting url', err)
       return res.status(500).send({ message: 'Something went wrong while redirecting url' })
     }
   }
