@@ -26,7 +26,7 @@ app.use(express.urlencoded({ extended: true }))
 app.disable('x-powered-by')
 
 // Serve frontend
-app.use(express.static(path.resolve(process.cwd(), 'client/dist')))
+app.use(express.static(path.resolve(process.cwd(), 'client', 'dist')))
 
 app.set('trust proxy', 1)
 app.use('/api', apiLimiter)
