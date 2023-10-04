@@ -7,6 +7,7 @@ import rateLimit from 'express-rate-limit'
 import routerUrl from './routes/urls.js'
 import routerRedirect from './routes/index.js'
 import unknownEndpoint from './middleware/unknownEndpoint.js'
+import { log } from './utils/index.js'
 
 const app = express()
 dotenv.config()
@@ -42,7 +43,7 @@ const BASEURL = process.env.NODE_ENV === 'production'
   : `http://localhost:${PORT}`
 
 app.listen(PORT, () => {
-  console.log(`Server running at PORT: ${PORT}`)
+  log(`Server running at PORT: ${PORT}`)
 
-  console.log(`App running at: ${BASEURL}`)
+  log(`App running at: ${BASEURL}`)
 })
