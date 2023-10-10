@@ -7,7 +7,7 @@ import rateLimit from 'express-rate-limit'
 import routerUrl from './routes/urls.js'
 import routerRedirect from './routes/index.js'
 import unknownEndpoint from './middleware/unknownEndpoint.js'
-import { log } from './utils/index.js'
+import { connectDatabase, disconnectDatabase } from './database/db.js'
 
 const app = express()
 dotenv.config()
@@ -20,6 +20,13 @@ const apiLimiter = rateLimit({
   standardHeaders: true, // Return rate limit info in the `RateLimit-*` headers
   legacyHeaders: true // Disable the `X-RateLimit-*` headers
 })
+
+try {
+  await connectDatabase()
+} catch (error) {
+  console.log('Error DB Connection', error)
+  process.exit(1) // 1 = exit with error
+}
 
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
@@ -43,7 +50,12 @@ const BASEURL = process.env.NODE_ENV === 'production'
   : `http://localhost:${PORT}`
 
 app.listen(PORT, () => {
-  log(`Server running at PORT: ${PORT}`)
+  console.log(`Server running at PORT: ${PORT}`)
 
-  log(`App running at: ${BASEURL}`)
+  console.log(`App running at: ${BASEURL}`)
+})
+
+app.on('error', async (err) => {
+  await disconnectDatabase()
+  console.error(err.message)
 })

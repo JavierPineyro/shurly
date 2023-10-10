@@ -2,5 +2,5 @@ POST http://localhost:8080/api/short
 content-type: application/json
 
 {
-    "originalUrl": "https://youtube.com/spreenvod"
+    "originalUrl": "https://youtube.com/spreenvlogs"
 }
